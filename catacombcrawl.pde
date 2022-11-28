@@ -81,12 +81,13 @@ void setup()
   scene04.addGameObject(object18);
 
 
+  //scenes 5 - 10 are the same room but after some changes have taken effect
   Scene scene05 = new Scene("scene05", "chamber.jpg");
   MoveToSceneObject object20 = new MoveToSceneObject("goToScene06_scene05", 1180, 300, 50, 50, "arrowRight.png", "scene06");
   scene05.addGameObject(object20);
-  MoveToSceneObject object21 = new MoveToSceneObject("goToScene07_scene05", 50, 300, 50, 50, "arrowLeft.png", "scene07");
+  MoveToSceneObject object21 = new MoveToSceneObject("goToScene08_scene05", 50, 300, 50, 50, "arrowLeft.png", "scene08");
   scene05.addGameObject(object21);
-  MoveToSceneObject object22 = new MoveToSceneObject("goToScene08_scene05", 308, 645, 50, 50, "arrowDown.png", "scene08");
+  MoveToSceneObject object22 = new MoveToSceneObject("goToScene07_scene05", 308, 645, 50, 50, "arrowDown.png", "scene07");
   scene05.addGameObject(object22);
   
   
@@ -112,8 +113,6 @@ void setup()
   scene07.addGameObject(object27);
   MoveToSceneObject object28 = new MoveToSceneObject("goToScene05_scene07", 308, 645, 50, 50, "arrowDown.png", "scene05");
   scene07.addGameObject(object28);
-  GameObject object32 = new GameObject("puzzleDoor", 380, 100, 550, 550, "puzzleWall.png");
-  scene07.addGameObject(object32);
   
   
   Scene scene08 = new Scene("scene08", "prison.jpg");
@@ -123,8 +122,27 @@ void setup()
   scene08.addGameObject(object30);
   MoveToSceneObject object31 = new MoveToSceneObject("goToScene05_scene08", 308, 645, 50, 50, "arrowDown.png", "scene05");
   scene08.addGameObject(object31);
-  CollectableObject object8 = new CollectableObject("ruby_scene02", 600, 400, 50, 50, ruby); //anubis eye for the door
+  MoveToSceneObject object8 = new MoveToSceneObject("ruby_scene08", 600, 400, 50, 50, "ruby.png", "scene09"); //anubis eye for the door
   scene08.addGameObject(object8);
+  //CollectableObject object8 = new CollectableObject("ruby_scene02", 600, 400, 50, 50, ruby); //anubis eye for the door
+  //scene08.addGameObject(object8);
+  
+  Scene scene09 = new Scene("scene09", "tutroom.jpg");
+  GameObject object32 = new PuzzleDoor("puzzleDoor", 380, 100, 550, 550, "puzzleWall.png");
+  scene09.addGameObject(object32);
+  MoveToSceneObject object34 = new MoveToSceneObject("goToScene10_scene09", 50, 300, 50, 50, "arrowLeft.png", "scene10");
+  scene09.addGameObject(object34);
+  
+  
+  Scene scene10 = new Scene("scene10", "start.jpg");
+  TextObject loupe07 = new TextObject("largeText_scene01", 506, 460, 250, 250, "book.png", "The eye of the death god is needed to read the writing on the wall. I am everywhere but nowhere, present everywhere.");
+  loupe07.setHoverImage("book.png");
+  scene10.addGameObject(loupe05);
+  TextObject loupe08 = new TextObject("smallText_scene01", 906, 561, 255, 150, "chestOpen.png", "Of course it is empty.");
+  loupe08.setHoverImage("chestOpen.png");
+  scene10.addGameObject(loupe06);
+  MoveToSceneObject object33 = new MoveToSceneObject("goToScene09_scene10", 1180, 300, 50, 50, "arrowRight.png", "scene09");
+  scene10.addGameObject(object33);
 
 
   sceneManager.addScene(scene01);
@@ -135,6 +153,14 @@ void setup()
   sceneManager.addScene(scene06);
   sceneManager.addScene(scene07);
   sceneManager.addScene(scene08);
+  sceneManager.addScene(scene09);
+  sceneManager.addScene(scene10);
+  
+  try {
+  sceneManager.goToScene ("scene09");
+  } catch (Exception e) {
+   println("Scene not found"); 
+  }
 }
 
 void draw()

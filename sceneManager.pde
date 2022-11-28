@@ -18,12 +18,14 @@ class SceneManager {
     }
   }
   
-  public void goToScene(String sceneName) throws Exception {
+  public void goToScene(String sceneName) throws RuntimeException {
     if(scenes.containsKey(sceneName)) {
-      scenesStack.push(scenes.get(sceneName));
+      Scene scene = scenes.get(sceneName);
+      scene.initialize();
+      scenesStack.push(scene);
     }
     else {
-      throw new Exception("Scene not found with name: "+ sceneName + "." + 
+      throw new RuntimeException("Scene not found with name: "+ sceneName + "." + 
                            "Make sure it was added to the sceneManager.");
     }
   }

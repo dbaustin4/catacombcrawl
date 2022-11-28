@@ -6,12 +6,23 @@ class Scene {
   private ArrayList<GameObject> recentlyAddedGameObjects;
   private ArrayList<GameObject> markedForDeathGameObjects;
   
+  public boolean first = true;
+  private String img;
+  
   public Scene(String sceneName, String backgroundImageFile) {
     this.sceneName = sceneName;
     this.backgroundImage = loadImage(backgroundImageFile);
+    this.img = backgroundImageFile;
     gameObjects = new ArrayList<GameObject>();
     markedForDeathGameObjects = new ArrayList<GameObject>();
     recentlyAddedGameObjects = new ArrayList<GameObject>();
+  }
+  
+  public void initialize() {
+    if (first) {
+      first = false;
+     // this.backgroundImage = loadImage(img);
+    }
   }
   
   public void addGameObject(GameObject object) {
