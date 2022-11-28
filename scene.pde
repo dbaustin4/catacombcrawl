@@ -17,6 +17,15 @@ class Scene {
     markedForDeathGameObjects = new ArrayList<GameObject>();
     recentlyAddedGameObjects = new ArrayList<GameObject>();
   }
+  public Scene(String sceneName, String backgroundImageFile , Movie movie){
+    this.sceneName = sceneName;
+    this.backgroundImage = loadImage(backgroundImageFile);
+    gameObjects = new ArrayList<GameObject>();
+    markedForDeathGameObjects = new ArrayList<GameObject>();
+    recentlyAddedGameObjects = new ArrayList<GameObject>();
+    movie.play();
+    image(movie, 0 , 0);
+  }
   
   public void initialize() {
     if (first) {
@@ -54,7 +63,6 @@ class Scene {
       object.draw();
     }
   }
-  
   public void mouseMoved() {
     for(GameObject object : gameObjects) {
       object.mouseMoved();

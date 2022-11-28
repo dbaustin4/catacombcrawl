@@ -1,10 +1,16 @@
 int wwidth = 1280;
 int wheight = 720;
+boolean skippedMovie = false;
+boolean devmode = true;
+
 import processing.sound.*;
-SoundFile file; 
+SoundFile file;
+import processing.video.*;
+Movie openingMovie;
 
 final SceneManager sceneManager = new SceneManager();
 final InventoryManager inventoryManager = new InventoryManager();
+
 
 void settings()
 {
@@ -13,6 +19,11 @@ void settings()
 
 void setup()
 {
+  openingMovie = new Movie(this, "openingMovie.mov");
+  Scene openingScene = new Scene("OpeningScene", "cross.png" ,openingMovie);
+  openingMovie.play();
+
+  //openingMovie.play();
   //file = new SoundFile(this, "soundtrack.mp3");
   //file.loop();
 
@@ -144,7 +155,7 @@ void setup()
   MoveToSceneObject object33 = new MoveToSceneObject("goToScene09_scene10", 1180, 300, 50, 50, "arrowRight.png", "scene09");
   scene10.addGameObject(object33);
 
-
+  //sceneManager.addScene(openingScene);
   sceneManager.addScene(scene01);
   sceneManager.addScene(scene02);
   sceneManager.addScene(scene03);
@@ -155,9 +166,8 @@ void setup()
   sceneManager.addScene(scene08);
   sceneManager.addScene(scene09);
   sceneManager.addScene(scene10);
-  
   try {
-  sceneManager.goToScene ("scene09");
+  //sceneManager.goToScene ("scene09");
   } catch (Exception e) {
    println("Scene not found"); 
   }
@@ -165,16 +175,24 @@ void setup()
 
 void draw()
 {
-  sceneManager.getCurrentScene().draw(wwidth, wheight);
-  sceneManager.getCurrentScene().updateScene();
-  inventoryManager.clearMarkedForDeathCollectables();
+  if(openingMovie.time() < 54  && devmode == false){
+        image(openingMovie, 0, 0, wwidth, wheight);
+        println(openingMovie.time());
+        }
+  else{
+        sceneManager.getCurrentScene().draw(wwidth, wheight);
+        sceneManager.getCurrentScene().updateScene();
+        inventoryManager.clearMarkedForDeathCollectables();
+        }
 }
-
-
+void movieEvent(Movie m) {
+  m.read();
+}
 void mouseMoved() {
   sceneManager.getCurrentScene().mouseMoved();
 }
 
 void mouseClicked() {
+  if(!skippedMovie) { skippedMovie = true; openingMovie.jump(54);}
   sceneManager.getCurrentScene().mouseClicked();
 }
