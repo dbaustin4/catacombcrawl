@@ -20,7 +20,6 @@ void settings()
 void setup()
 {
   openingMovie = new Movie(this, "openingMovie.mov");
-  Scene openingScene = new Scene("OpeningScene", "cross.png" ,openingMovie);
   openingMovie.play();
 
   //openingMovie.play();
@@ -154,18 +153,7 @@ void setup()
   scene10.addGameObject(loupe06);
   MoveToSceneObject object33 = new MoveToSceneObject("goToScene09_scene10", 1180, 300, 50, 50, "arrowRight.png", "scene09");
   scene10.addGameObject(object33);
-
-  //sceneManager.addScene(openingScene);
-  sceneManager.addScene(scene01);
-  sceneManager.addScene(scene02);
-  sceneManager.addScene(scene03);
-  sceneManager.addScene(scene04);
-  sceneManager.addScene(scene05);
-  sceneManager.addScene(scene06);
-  sceneManager.addScene(scene07);
-  sceneManager.addScene(scene08);
-  sceneManager.addScene(scene09);
-  sceneManager.addScene(scene10);
+  
   try {
   //sceneManager.goToScene ("scene09");
   } catch (Exception e) {

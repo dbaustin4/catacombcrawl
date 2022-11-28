@@ -16,15 +16,7 @@ class Scene {
     gameObjects = new ArrayList<GameObject>();
     markedForDeathGameObjects = new ArrayList<GameObject>();
     recentlyAddedGameObjects = new ArrayList<GameObject>();
-  }
-  public Scene(String sceneName, String backgroundImageFile , Movie movie){
-    this.sceneName = sceneName;
-    this.backgroundImage = loadImage(backgroundImageFile);
-    gameObjects = new ArrayList<GameObject>();
-    markedForDeathGameObjects = new ArrayList<GameObject>();
-    recentlyAddedGameObjects = new ArrayList<GameObject>();
-    movie.play();
-    image(movie, 0 , 0);
+    sceneManager.addScene(this);
   }
   
   public void initialize() {
