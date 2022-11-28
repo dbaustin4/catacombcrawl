@@ -1,7 +1,12 @@
 int wwidth = 1280;
 int wheight = 720;
+boolean skippedMovie = false;
+boolean devmode = true;
+
 import processing.sound.*;
-SoundFile file; 
+SoundFile file;
+import processing.video.*;
+Movie openingMovie;
 
 final SceneManager sceneManager = new SceneManager();
 final InventoryManager inventoryManager = new InventoryManager();
@@ -13,6 +18,8 @@ void settings()
 
 void setup()
 {
+  openingMovie = new Movie(this, "openingMovie.mov");
+  openingMovie.play();
   //file = new SoundFile(this, "soundtrack.mp3");
   //file.loop();
   
@@ -146,18 +153,6 @@ void setup()
   scene10.addGameObject(loupe06);
   MoveToSceneObject object33 = new MoveToSceneObject("goToScene09_scene10", 1180, 300, 50, 50, "arrowRight.png", "scene09");
   scene10.addGameObject(object33);
-
-
-  sceneManager.addScene(scene01);
-  sceneManager.addScene(scene02);
-  sceneManager.addScene(scene03);
-  sceneManager.addScene(scene04);
-  sceneManager.addScene(scene05);
-  sceneManager.addScene(scene06);
-  sceneManager.addScene(scene07);
-  sceneManager.addScene(scene08);
-  sceneManager.addScene(scene09);
-  sceneManager.addScene(scene10);
   
   /*try {
   sceneManager.goToScene ("scene09");
@@ -168,9 +163,19 @@ void setup()
 
 void draw()
 {
-  sceneManager.getCurrentScene().draw(wwidth, wheight);
-  sceneManager.getCurrentScene().updateScene();
-  inventoryManager.clearMarkedForDeathCollectables();
+        if(openingMovie.time() < 54  && devmode == false){
+        image(openingMovie, 0, 0, wwidth, wheight);
+        println(openingMovie.time());
+        }
+        else{
+        sceneManager.getCurrentScene().draw(wwidth, wheight);
+        sceneManager.getCurrentScene().updateScene();
+        inventoryManager.clearMarkedForDeathCollectables();
+        }
+}
+
+void movieEvent(Movie m){
+  m.read();
 }
 
 
@@ -179,5 +184,6 @@ void mouseMoved() {
 }
 
 void mouseClicked() {
+  if(!skippedMovie) { skippedMovie = true; openingMovie.jump(54);}
   sceneManager.getCurrentScene().mouseClicked();
 }

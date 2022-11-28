@@ -16,6 +16,7 @@ class Scene {
     gameObjects = new ArrayList<GameObject>();
     markedForDeathGameObjects = new ArrayList<GameObject>();
     recentlyAddedGameObjects = new ArrayList<GameObject>();
+    sceneManager.addScene(this);
   }
   
   public void initialize() {
