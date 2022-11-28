@@ -16,7 +16,6 @@ class Scene {
     gameObjects = new ArrayList<GameObject>();
     markedForDeathGameObjects = new ArrayList<GameObject>();
     recentlyAddedGameObjects = new ArrayList<GameObject>();
-    sceneManager.addScene(this);
   }
   
   public void initialize() {
@@ -55,6 +54,7 @@ class Scene {
       object.draw();
     }
   }
+  
   public void mouseMoved() {
     for(GameObject object : gameObjects) {
       object.mouseMoved();

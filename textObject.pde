@@ -1,5 +1,8 @@
+String[] fontList = PFont.list();
+
 class TextObject extends GameObject {
   private String text;
+  private PFont egypt;
   private boolean displayText;
   private float textWidth;
   private float textHeight;
@@ -7,6 +10,7 @@ class TextObject extends GameObject {
   public TextObject(String identifier, int x, int y, int owidth, 
                     int oheight, String gameObjectImageFile, String text) {
     super(identifier, x, y, owidth, oheight, gameObjectImageFile);
+    egypt = createFont("Segoe UI Historic", 128);
     this.text = text;
     displayText = false;
     calculateTextArea(); //Automatically calculates the area 
@@ -16,10 +20,12 @@ class TextObject extends GameObject {
   public void draw() {
     super.draw();
     if(displayText) {
-      fill(255);
-      rect(this.x, this.y, textWidth + 30, textHeight, 8);
+      fill(#EDB348); //
+      rect(this.x, this.y, textWidth + 55, textHeight + 75, 8);
       fill(0);
-      text(text, this.x + 15, this.y + 15, textWidth, textHeight); 
+      textSize(20);
+      text(text, this.x + 15, this.y + 15, textWidth + 40, textHeight + 60);
+      //textFont(egypt);
     }
   }
   @Override

@@ -1,16 +1,10 @@
 int wwidth = 1280;
 int wheight = 720;
-boolean skippedMovie = false;
-boolean devmode = true;
-
 import processing.sound.*;
-SoundFile file;
-import processing.video.*;
-Movie openingMovie;
+SoundFile file; 
 
 final SceneManager sceneManager = new SceneManager();
 final InventoryManager inventoryManager = new InventoryManager();
-
 
 void settings()
 {
@@ -19,13 +13,11 @@ void settings()
 
 void setup()
 {
-  openingMovie = new Movie(this, "openingMovie.mov");
-  openingMovie.play();
-
-  //openingMovie.play();
   //file = new SoundFile(this, "soundtrack.mp3");
   //file.loop();
-
+  
+  //PFont egypt;
+  //egypt = createFont("gyp");
   Collectable scythe = new Collectable("scythe", "scythe.png");
   Collectable ruby = new Collectable("ruby", "ruby.png");
   Collectable cross = new Collectable ("cross", "cross.png");
@@ -53,6 +45,7 @@ void setup()
   scene01.addGameObject(object9);
   MoveToSceneObject object10 = new MoveToSceneObject("goToScene04_scene01", 308, 645, 50, 50, "arrowDown.png", "scene04");
   scene01.addGameObject(object10);
+  
 
 
   Scene scene02 = new Scene("scene02", "tutroom.jpg");
@@ -73,9 +66,9 @@ void setup()
   scene03.addGameObject(object13);
   MoveToSceneObject object16 = new MoveToSceneObject("goToScene04_scene03", 50, 300, 50, 50, "arrowLeft.png", "scene04");
   scene03.addGameObject(object16);
-  MoveToSceneObject object19 = new MoveToSceneObject("goToScene05_scene03", 1050, 496, 20, 20, "mirror.png", "scene05");
+  MoveToSceneObject object19 = new MoveToSceneObject("goToScene05_scene03", 1040, 496, 20, 20, "mirror.png", "scene05");
   scene03.addGameObject(object19);
-  RequireObject loupe04 = new RequireObject("requiresMirror_scene03", 1025, 496, 80, 80, "gem.png", "The light could be reflected somehow...", mirror, object6); //instead of placing a mirror it changes the scene background
+  RequireObject loupe04 = new RequireObject("requiresMirror_scene03", 985, 496, 130, 130, "gem.png", "The light could be reflected somehow...", mirror, object19); //instead of placing a mirror it changes the scene background
   scene03.addGameObject(loupe04);
 
 
@@ -145,7 +138,7 @@ void setup()
   
   
   Scene scene10 = new Scene("scene10", "start.jpg");
-  TextObject loupe07 = new TextObject("largeText_scene01", 506, 460, 250, 250, "book.png", "The eye of the death god is needed to read the writing on the wall. I am everywhere but nowhere, present everywhere.");
+  TextObject loupe07 = new TextObject("largeText_scene01", 506, 460, 250, 250, "book.png", "The eye of the death god is needed to read the writing on the wall. I am everywhere but nowhere, present everywhere!");
   loupe07.setHoverImage("book.png");
   scene10.addGameObject(loupe05);
   TextObject loupe08 = new TextObject("smallText_scene01", 906, 561, 255, 150, "chestOpen.png", "Of course it is empty.");
@@ -153,34 +146,38 @@ void setup()
   scene10.addGameObject(loupe06);
   MoveToSceneObject object33 = new MoveToSceneObject("goToScene09_scene10", 1180, 300, 50, 50, "arrowRight.png", "scene09");
   scene10.addGameObject(object33);
+
+
+  sceneManager.addScene(scene01);
+  sceneManager.addScene(scene02);
+  sceneManager.addScene(scene03);
+  sceneManager.addScene(scene04);
+  sceneManager.addScene(scene05);
+  sceneManager.addScene(scene06);
+  sceneManager.addScene(scene07);
+  sceneManager.addScene(scene08);
+  sceneManager.addScene(scene09);
+  sceneManager.addScene(scene10);
   
-  try {
-  //sceneManager.goToScene ("scene09");
+  /*try {
+  sceneManager.goToScene ("scene09");
   } catch (Exception e) {
    println("Scene not found"); 
-  }
+  }*/
 }
 
 void draw()
 {
-  if(openingMovie.time() < 54  && devmode == false){
-        image(openingMovie, 0, 0, wwidth, wheight);
-        println(openingMovie.time());
-        }
-  else{
-        sceneManager.getCurrentScene().draw(wwidth, wheight);
-        sceneManager.getCurrentScene().updateScene();
-        inventoryManager.clearMarkedForDeathCollectables();
-        }
+  sceneManager.getCurrentScene().draw(wwidth, wheight);
+  sceneManager.getCurrentScene().updateScene();
+  inventoryManager.clearMarkedForDeathCollectables();
 }
-void movieEvent(Movie m) {
-  m.read();
-}
+
+
 void mouseMoved() {
   sceneManager.getCurrentScene().mouseMoved();
 }
 
 void mouseClicked() {
-  if(!skippedMovie) { skippedMovie = true; openingMovie.jump(54);}
   sceneManager.getCurrentScene().mouseClicked();
 }
