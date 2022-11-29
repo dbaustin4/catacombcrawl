@@ -137,6 +137,8 @@ void setup()
   //CollectableObject object8 = new CollectableObject("ruby_scene02", 600, 400, 50, 50, ruby); //anubis eye for the door
   //scene08.addGameObject(object8);
   
+  
+  //scene 9 and 10 you can only read the riddles and solve the puzzle door
   Scene scene09 = new Scene("scene09", "tutroom.jpg");
   GameObject object32 = new PuzzleDoor("puzzleDoor", 380, 100, 550, 550, "puzzleWall.png");
   scene09.addGameObject(object32);
