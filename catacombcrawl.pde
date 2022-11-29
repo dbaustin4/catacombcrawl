@@ -51,7 +51,7 @@ void setup()
   puzzleScene.addGameObject(loupe03);
 
   //light Scene
-  Scene lightScene = new Scene("lightScene", "lightSceneBG.jpg");
+  Scene lightScene = new Scene("lightScene", "lightSceneBG.png");
   MoveToSceneObject goToAct2MirrorObject = new MoveToSceneObject("goTolightScene_act2_lightScene", 1040, 496, 20, 20, "mirror.png", "lightScene_act2");
   lightScene.addGameObject(goToAct2MirrorObject);
   RequireObject loupe04 = new RequireObject("requiresMirror_lightScene", 985, 496, 130, 130, "gem.png", "The light could be reflected somehow...", mirror, goToAct2MirrorObject); //instead of placing a mirror it changes the scene background
@@ -88,7 +88,7 @@ void setup()
 
 
   //light Scene act2
-  Scene lightScene_act2 = new Scene("lightScene_act2", "lightSceneBG.jpg");
+  Scene lightScene_act2 = new Scene("lightScene_act2", "lightSceneBG2.png");
   
 
   //puzzle scene act3
