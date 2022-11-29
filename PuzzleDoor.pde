@@ -31,7 +31,7 @@ class PuzzleDoor extends GameObject {
     }
     
     
-    if (tileOne && tileTwo && tileThree) sceneManager.goToScene("scene10");
+    if (tileOne && tileTwo && tileThree) sceneManager.goToScene("riddleScene_act3");//placeholder location
   }
   
   public void draw() {
