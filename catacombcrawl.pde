@@ -37,11 +37,11 @@ void setup()
 
   //scene 1 to 4 is the first room
   // riddle Scene
-  Scene riddleScene = new Scene("riddleScene", "riddleSceneBG.jpg");
-  RequireObject loupe01 = new RequireObject("requiresCross_riddleScene", 906, 561, 255, 150, "chestClosed.png", "The chest appears to be locked.", cross, mirrorObject);
+  Scene riddleScene = new Scene("riddleScene", "riddleSceneBG.png");
+  RequireObject loupe01 = new RequireObject("requiresCross_riddleScene", 928, 570, 255, 150, "chestClosed.png", "The chest appears to be locked.", cross, mirrorObject);
   loupe01.setHoverImage("chestClosed.png");
   riddleScene.addGameObject(loupe01);
-  TextObject loupe02 = new TextObject("largeText_riddleScene", 506, 460, 250, 250, "book.png", "The eye of the death god is needed to read the writing on the wall. I am everywhere but nowhere, present everywhere.");
+  TextObject loupe02 = new TextObject("largeText_riddleScene", 506, 400, 250, 250, "book.png", "The eye of the death god is needed to read the writing on the wall. I am everywhere but nowhere, present everywhere.");
   loupe02.setHoverImage("book.png");
   riddleScene.addGameObject(loupe02);
 
@@ -58,19 +58,19 @@ void setup()
   lightScene.addGameObject(loupe04);
 
   //statue Scene
-  Scene statueScene = new Scene("statueScene", "statueSceneBG.jpg");
-  CollectableObject scytheObject = new CollectableObject("scythe_lightScene", 600, 400, 50, 50, scythe);
+  Scene statueScene = new Scene("statueScene", "statueSceneBG.png");
+  CollectableObject scytheObject = new CollectableObject("scythe_lightScene", 620, 295, 50, 50, scythe);
   statueScene.addGameObject(scytheObject);
 
 
 
   //scenes 5 - 10 are the same room but after some changes have taken effect
   //riddle Scene act2
-  Scene riddleScene_act2 = new Scene("riddleScene_act2", "riddleSceneBG.jpg");
+  Scene riddleScene_act2 = new Scene("riddleScene_act2", "riddleSceneBG.png");
   TextObject loupe05 = new TextObject("largeText_riddleScene", 506, 460, 250, 250, "book.png", "The eye of the death god is needed to read the writing on the wall. I am everywhere but nowhere, present everywhere.");
   loupe05.setHoverImage("book.png");
   riddleScene_act2.addGameObject(loupe05);
-  TextObject loupe06 = new TextObject("smallText_riddleScene", 906, 561, 255, 150, "chestOpen.png", "Of course it is empty.");
+  TextObject loupe06 = new TextObject("smallText_riddleScene", 928, 570, 255, 150, "chestOpen.png", "Of course it is empty.");
   loupe06.setHoverImage("chestOpen.png");
   riddleScene_act2.addGameObject(loupe06);
 
@@ -80,8 +80,8 @@ void setup()
 
   
   //statue Scene act2
-  Scene statueScene_act2 = new Scene("statueScene_act2", "statueSceneBG.jpg");
-  MoveToSceneObject goToAct3RubyObject = new MoveToSceneObject("ruby_statueScene_act2", 600, 400, 50, 50, "ruby.png", "puzzleScene_act3"); //anubis eye for the door
+  Scene statueScene_act2 = new Scene("statueScene_act2", "statueSceneBG2.png");
+  MoveToSceneObject goToAct3RubyObject = new MoveToSceneObject("ruby_statueScene_act2", 620, 295, 30, 30, "ruby.png", "puzzleScene_act3"); //anubis eye for the door
   statueScene_act2.addGameObject(goToAct3RubyObject);
   //CollectableObject goToAct3RubyObject = new CollectableObject("ruby_puzzleScene", 600, 400, 50, 50, ruby); //anubis eye for the door
   //statueScene_act2.addGameObject(goToAct3RubyObject);
@@ -100,11 +100,11 @@ void setup()
   puzzleScene_act3.addGameObject(navPuzzleScene_act3);
 
   //riddle scene act3
-  Scene riddleScene_act3 = new Scene("riddleScene_act3", "riddleSceneBG.jpg");
+  Scene riddleScene_act3 = new Scene("riddleScene_act3", "riddleSceneBG.png");
   TextObject loupe07 = new TextObject("largeText_riddleScene", 506, 460, 250, 250, "book.png", "The eye of the death god is needed to read the writing on the wall. I am everywhere but nowhere, present everywhere!");
   loupe07.setHoverImage("book.png");
   riddleScene_act3.addGameObject(loupe05);
-  TextObject loupe08 = new TextObject("smallText_riddleScene", 906, 561, 255, 150, "chestOpen.png", "Of course it is empty.");
+  TextObject loupe08 = new TextObject("smallText_riddleScene", 929, 570, 255, 150, "chestOpen.png", "Of course it is empty.");
   loupe08.setHoverImage("chestOpen.png");
   riddleScene_act3.addGameObject(loupe06);
   MoveToSceneObject navRiddleScene_act3 = new MoveToSceneObject("goTopuzzleScene_act3_riddleScene_act3", 1180, 300, 50, 50, "arrowRight.png", "puzzleScene_act3");
