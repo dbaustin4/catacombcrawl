@@ -29,6 +29,7 @@ class MoveToSceneObject extends GameObject {
         sceneManager.goToPreviousScene();
       } else {
         try {
+          if(devnav){println("heading to: " + nextSceneIdentifier);}
           sceneManager.goToScene(nextSceneIdentifier);
         } catch(Exception e) { 
           println(e.getMessage());
