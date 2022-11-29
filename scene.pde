@@ -47,6 +47,7 @@ class Scene {
       }
       recentlyAddedGameObjects  = new ArrayList<GameObject>();
     }
+    this.mouseMoved();
   }
   
   public void draw(int wwidth, int wheight) {
