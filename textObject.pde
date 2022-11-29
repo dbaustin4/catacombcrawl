@@ -1,5 +1,3 @@
-String[] fontList = PFont.list();
-
 class TextObject extends GameObject {
   private String text;
   private PFont egypt;
@@ -25,7 +23,6 @@ class TextObject extends GameObject {
       fill(0);
       textSize(20);
       text(text, this.x + 15, this.y + 15, textWidth + 40, textHeight + 60);
-      //textFont(egypt);
     }
   }
   @Override
@@ -39,6 +36,7 @@ class TextObject extends GameObject {
     float remaining = textWidth - 300;
     textWidth = (textWidth > 300) ? 300 : textWidth;
     textHeight = 50;
+    textFont(egypt);
     while(remaining > 300)
     {
       textHeight += 30;
