@@ -29,12 +29,11 @@ class navigationGUI {
   }
 
   public void addNavigationGUI(){
-
-    MoveToSceneObject obj1 = new MoveToSceneObject(navObjectsNames.get(0), 50, 300, 50, 50, arrowLeftImage, targetLeft);
+    MoveToSceneObject obj1 = new MoveToSceneObject(navObjectsNames.get(0), 2, 358, 50, 50, arrowLeftImage, targetLeft);
     scene.addGameObject(obj1);
-    MoveToSceneObject obj2  = new MoveToSceneObject(navObjectsNames.get(1) , 1180, 300, 50, 50, arrowRightImage, targetRight);
+    MoveToSceneObject obj2  = new MoveToSceneObject(navObjectsNames.get(1) , 1231, 358, 50, 50, arrowRightImage, targetRight);
     scene.addGameObject(obj2);
-    MoveToSceneObject obj3  = new MoveToSceneObject(navObjectsNames.get(2) , 308, 645, 50, 50, arrowDownImage, targetDown);
-    scene.addGameObject(obj3);
+    //MoveToSceneObject obj3  = new MoveToSceneObject(navObjectsNames.get(2) , 308, 645, 50, 50, arrowDownImage, targetDown);
+    //scene.addGameObject(obj3);
   }
 }

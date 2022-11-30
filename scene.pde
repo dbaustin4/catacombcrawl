@@ -25,7 +25,10 @@ class Scene {
      // this.backgroundImage = loadImage(img);
     }
   }
-  
+
+  public void changeBackgroundImage(String backgroundImageFile){
+    this.backgroundImage = loadImage(backgroundImageFile);
+  }
   public void addGameObject(GameObject object) {
     recentlyAddedGameObjects.add(object);
   }
