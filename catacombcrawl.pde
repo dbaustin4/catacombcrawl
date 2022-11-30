@@ -80,7 +80,7 @@ void setup()
   
   //statue Scene act2
   Scene statueScene_act2 = new Scene("statueScene_act2", "statueSceneBG2.png");
-  MoveToSceneObject goToAct3RubyObject = new MoveToSceneObject("ruby_statueScene_act2", 620, 295, 30, 30, "GemEye_InBowl.png", "puzzleScene_act3"); //anubis eye for the door
+  MoveToSceneObject goToAct3RubyObject = new MoveToSceneObject("ruby_statueScene_act2", 600, 304, 31, 20, "GemEye_InBowl.png", "puzzleScene_act3"); //anubis eye for the door
   statueScene_act2.addGameObject(goToAct3RubyObject);
   //CollectableObject goToAct3RubyObject = new CollectableObject("ruby_puzzleScene", 600, 400, 50, 50, ruby); //anubis eye for the door
   //statueScene_act2.addGameObject(goToAct3RubyObject);
