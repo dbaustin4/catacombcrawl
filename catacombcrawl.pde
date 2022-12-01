@@ -21,7 +21,7 @@ void settings()
 void setup()
 {
   sound.volume(0);
-  openingMovie = new Movie(this, "vidtest.mov");
+  openingMovie = new Movie(this, "openingMovie.mov");
   openingMovie.play();
   //init for audiofiles
         SoundFile soundTrack = new SoundFile(this, "soundtrack.wav");
@@ -156,6 +156,9 @@ void setup()
   loupe11.addSoundFile(paperRumble);
   riddleBookScene_act3.addGameObject(loupe11);
 
+  //end scene
+  Scene ending = new Scene("endScene", "continued.png");
+
   //Room transitions
         /*                 layout
                         Riddle Scene
@@ -205,7 +208,6 @@ void draw()
 {
   if(openingMovie.time() < 54  && devmode == false){
         image(openingMovie, 0, 0, wwidth, wheight);
-        println(openingMovie.time());
         }
   else{
         openingMovie.pause();
