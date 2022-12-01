@@ -23,7 +23,7 @@ class PuzzleDoor extends GameObject {
     
     //pressed[tileX][tileY] = true;
     
-    if (tileX == 3 && tileY == 3) tileOne = true;
+    if (tileX == 2 && tileY == 3) tileOne = true;
     else if (tileX == 0 && tileY == 2) tileTwo = true;
     else if (tileX == 3 && tileY == 0) tileThree = true;
     else {

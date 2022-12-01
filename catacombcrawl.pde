@@ -56,6 +56,9 @@ void setup()
   Scene puzzleScene = new Scene("puzzleScene", "puzzleSceneBG.png");
   RequireObject loupe03 = new RequireObject("requiresScythe_puzzleScene", 300, 383, 48, 93, "Scythe_Mold.png", "Looks like a scythe fits in here", scythe, crossObject, "puzzleSceneBG2.png");
   puzzleScene.addGameObject(loupe03);
+  fill(0);
+  textSize(40);
+  text("EYE NEEDED", 640, 400);
 
   //light Scene
   Scene lightScene = new Scene("lightScene", "lightSceneBG.png");
@@ -88,6 +91,9 @@ void setup()
   
   //puzzle Scene act2
   Scene puzzleScene_act2 = new Scene("puzzleScene_act2", "puzzleSceneBG2.png");
+  fill(0);
+  textSize(40);
+  text("EYE NEEDED", 640, 400);
 
   
   //statue Scene act2
@@ -169,12 +175,7 @@ void setup()
         
         //scenes 9-10
 
- /*
-  try {
-  sceneManager.goToScene ("riddlscene_act2");
-  } catch (Exception e) {
-   println("Scene not found");
-  }*/
+ 
 }
 
 void draw()
