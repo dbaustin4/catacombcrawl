@@ -21,8 +21,8 @@ void setup()
 {
   openingMovie = new Movie(this, "openingMovie.mov");
   openingMovie.play();
-  //file = new SoundFile(this, "soundtrack.mp3");
-  //file.loop();
+  file = new SoundFile(this, "soundtrack.mp3");
+  file.loop();
   
   //PFont egypt;
   //egypt = createFont("gyp");
@@ -41,8 +41,8 @@ void setup()
   RequireObject loupe01 = new RequireObject("requiresCross_riddleScene", 929, 496, 288, 224, "chestClosed.png", "The chest appears to be locked.", cross , loupe06 ,mirrorObject);
   loupe01.setHoverImage("chestClosed.png");
   riddleScene.addGameObject(loupe01);
-  TextObject loupe02 = new TextObject("largeText_riddleScene", 533, 395, 218, 120, "Book.png", "The eye of the death god is needed to read the writing on the wall. I am everywhere but nowhere, present everywhere.");
-  loupe02.setHoverImage("Book.png");
+  TextObject loupe02 = new TextObject("largeText_riddleScene", 533, 395, 218, 120, "book.png", "The eye of the death god is needed to read the writing on the wall. I am everywhere but nowhere, present everywhere.");
+  loupe02.setHoverImage("book.png");
   riddleScene.addGameObject(loupe02);
 
   // puzzle Scene
@@ -67,8 +67,8 @@ void setup()
   //scenes 5 - 10 are the same room but after some changes have taken effect
   //riddle Scene act2
   Scene riddleScene_act2 = new Scene("riddleScene_act2", "riddleSceneBG.png");
-  TextObject loupe05 = new TextObject("largeText_riddleScene", 533, 395, 218, 120, "Book.png", "The eye of the death god is needed to read the writing on the wall. I am everywhere but nowhere, present everywhere.");
-  loupe05.setHoverImage("Book.png");
+  TextObject loupe05 = new TextObject("largeText_riddleScene", 533, 395, 218, 120, "book.png", "The eye of the death god is needed to read the writing on the wall. I am everywhere but nowhere, present everywhere.");
+  loupe05.setHoverImage("book.png");
   riddleScene_act2.addGameObject(loupe05);
   loupe06.setHoverImage("chestOpen.png");
   riddleScene_act2.addGameObject(loupe06);
@@ -100,8 +100,8 @@ void setup()
 
   //riddle scene act3
   Scene riddleScene_act3 = new Scene("riddleScene_act3", "riddleSceneBG.png");
-  TextObject loupe07 = new TextObject("largeText_riddleScene", 533, 395, 218, 120, "Book.png", "The eye of the death god is needed to read the writing on the wall. I am everywhere but nowhere, present everywhere!");
-  loupe07.setHoverImage("Book.png");
+  TextObject loupe07 = new TextObject("largeText_riddleScene", 533, 395, 218, 120, "book.png", "The eye of the death god is needed to read the writing on the wall. I am everywhere but nowhere, present everywhere!");
+  loupe07.setHoverImage("book.png");
   riddleScene_act3.addGameObject(loupe05);
   TextObject loupe08 = new TextObject("smallText_riddleScene", 929, 570, 255, 150, "chestOpen.png", "Of course it is empty.");
   loupe08.setHoverImage("chestOpen.png");
