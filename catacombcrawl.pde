@@ -55,12 +55,14 @@ void setup()
   loupe01.setHoverImage("chestClosed.png");
   riddleScene.addGameObject(loupe01);
   MoveToSceneObject loupe02 = new MoveToSceneObject("goToriddleBookScene", 533, 395, 218, 120, "book.png", "riddleBookScene");
+  loupe02.addSoundFile(paperRumble);
   loupe02.setHoverImage("book.png");
   riddleScene.addGameObject(loupe02);
   
   //riddle book scene
   Scene riddleBookScene = new Scene("riddleBookScene", "riddleBook.png");
   MoveToSceneObject loupe09 = new MoveToSceneObject("goBackRiddleScene", 0, 0, 1280, 720, "riddleBook.png", "riddleScene");
+  loupe09.addSoundFile(paperRumble);
   riddleBookScene.addGameObject(loupe09);
   
 
@@ -90,6 +92,7 @@ void setup()
   //riddle Scene act2
   Scene riddleScene_act2 = new Scene("riddleScene_act2", "riddleSceneBG.png");
   MoveToSceneObject loupe05 = new MoveToSceneObject("goToriddleBookScene_act2", 533, 395, 218, 120, "book.png", "riddleBookScene_act2");
+  loupe05.addSoundFile(paperRumble);
   loupe05.setHoverImage("book.png");
   riddleScene_act2.addGameObject(loupe05);
   loupe06.setHoverImage("chestOpen.png");
@@ -98,6 +101,7 @@ void setup()
   //riddle book act2 scene
   Scene riddleBookScene_act2 = new Scene("riddleBookScene_act2", "riddleBook.png");
   MoveToSceneObject loupe10 = new MoveToSceneObject("goBackRiddleScene_act2", 0, 0, 1280, 720, "riddleBook.png", "riddleScene_act2");
+  loupe10.addSoundFile(paperRumble);
   riddleBookScene_act2.addGameObject(loupe10);
   
   //puzzle Scene act2
@@ -128,6 +132,7 @@ void setup()
   //riddle scene act3
   Scene riddleScene_act3 = new Scene("riddleScene_act3", "riddleSceneBG.png");
   MoveToSceneObject loupe07 = new MoveToSceneObject("goToriddleBookScene_act3", 533, 395, 218, 120, "book.png", "riddleBookScene_act3");
+  loupe07.addSoundFile(paperRumble);
   loupe07.setHoverImage("book.png");
   riddleScene_act3.addGameObject(loupe07);
   TextObject loupe08 = new TextObject("smallText_riddleScene", 929, 570, 255, 150, "chestOpen.png", "Of course it is empty.");
@@ -139,6 +144,7 @@ void setup()
   //riddle book act3 scene
   Scene riddleBookScene_act3 = new Scene("riddleBookScene_act3", "riddleBook.png");
   MoveToSceneObject loupe11 = new MoveToSceneObject("goBackRiddleScene_act3", 0, 0, 1280, 720, "riddleBook.png", "riddleScene_act3");
+  loupe11.addSoundFile(paperRumble);
   riddleBookScene_act3.addGameObject(loupe11);
 
   //Room transitions
