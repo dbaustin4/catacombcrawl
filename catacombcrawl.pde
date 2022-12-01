@@ -157,7 +157,7 @@ void setup()
   riddleBookScene_act3.addGameObject(loupe11);
 
   //end scene
-  Scene ending = new Scene("endScene", "continued.png");
+  Scene ending = new Scene("endScene", "Endscreee.png");
 
   //Room transitions
         /*                 layout
