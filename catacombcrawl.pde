@@ -21,10 +21,11 @@ void settings()
 void setup()
 {
   sound.volume(0);
-  openingMovie = new Movie(this, "openingMovie.mov");
+  openingMovie = new Movie(this, "vidtest.mov");
   openingMovie.play();
   //init for audiofiles
         SoundFile soundTrack = new SoundFile(this, "soundtrack.wav");
+        soundTrack.loop();
         SoundFile scythePickUp = new SoundFile(this, "scythe_pickup.wav");
         SoundFile scythePlace = new SoundFile(this, "scythe_place.wav");
         SoundFile chestOpen = new SoundFile(this, "chest_open.wav");
@@ -33,7 +34,7 @@ void setup()
         SoundFile doorOpen = new SoundFile(this, "sliding_stone_door.wav");
         SoundFile gemPickup = new SoundFile(this, "gem_Pickup.wav");
         SoundFile paperRumble  = new SoundFile(this, "paper_rumbling.wav");
-        soundTrack.loop();
+
 
 
   //PFont egypt;
@@ -207,6 +208,7 @@ void draw()
         println(openingMovie.time());
         }
   else{
+        openingMovie.pause();
         sound.volume(1);
         sceneManager.getCurrentScene().draw(wwidth, wheight);
         sceneManager.getCurrentScene().updateScene();
