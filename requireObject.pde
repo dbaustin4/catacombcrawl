@@ -41,6 +41,9 @@ class RequireObject extends TextObject {
   @Override
   public void mouseClicked() {
     if(mouseIsHovering && inventoryManager.containsCollectable(collectable)) {
+      if(this.soundFile != null){
+        soundFile.play();
+      }
       if(targetScene != null){
         sceneManager.goToScene(targetScene);
       }

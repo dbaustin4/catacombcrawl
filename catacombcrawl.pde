@@ -21,10 +21,19 @@ void setup()
 {
   openingMovie = new Movie(this, "openingMovie.mov");
   openingMovie.play();
-  SoundFile file = new SoundFile(this, "soundtrack.mp3");
-  file.loop();
-  SoundFile scythePickUp = new SoundFile(this, "scythe_pickup.wav");
-  
+
+  //init for audiofiles
+        SoundFile soundTrack = new SoundFile(this, "soundtrack.wav");
+        SoundFile scythePickUp = new SoundFile(this, "scythe_pickup.wav");
+        SoundFile scythePlace = new SoundFile(this, "scythe_place.wav");
+        SoundFile chestOpen = new SoundFile(this, "chest_open.wav");
+        SoundFile chestLocked = new SoundFile(this, "chest_locked.wav");
+        SoundFile mirrorPickUp = new SoundFile(this, "mirror_pickup.wav");
+        SoundFile doorOpen = new SoundFile(this, "sliding_stone_door.wav");
+        SoundFile gemPickup = new SoundFile(this, "gem_Pickup.wav");
+        SoundFile paperRumble  = new SoundFile(this, "paper_rumbling.wav");
+        //soundTrack.loop();
+
   //PFont egypt;
   //egypt = createFont("gyp");
   Collectable scythe = new Collectable("scythe", "scythe_Cutoff.png");
@@ -33,13 +42,16 @@ void setup()
   Collectable mirror = new Collectable ("mirror", "Mirror_Cutoff.png");
 
   CollectableObject mirrorObject = new CollectableObject("mirror_riddleScene", 1047, 550, 113, 131, mirror);
+  mirrorObject.addSoundFile(mirrorPickUp);
   CollectableObject crossObject = new CollectableObject("cross_lightScene", 300, 382, 52, 95, cross);
+  crossObject.addSoundFile(scythePickUp);
 
   TextObject loupe06 = new TextObject("smallText_riddleScene", 930, 467, 286, 253, "chestOpen.png", "Of course it is empty.");
   //scene 1 to 4 is the first room
   // riddle Scene
   Scene riddleScene = new Scene("riddleScene", "riddleSceneBG.png");
   RequireObject loupe01 = new RequireObject("requiresCross_riddleScene", 929, 496, 288, 224, "chestClosed.png", "The chest appears to be locked.", cross , loupe06 ,mirrorObject);
+  loupe01.addSoundFile(chestLocked);
   loupe01.setHoverImage("chestClosed.png");
   riddleScene.addGameObject(loupe01);
   MoveToSceneObject loupe02 = new MoveToSceneObject("goToriddleBookScene", 533, 395, 218, 120, "book.png", "riddleBookScene");
@@ -55,6 +67,7 @@ void setup()
   // puzzle Scene
   Scene puzzleScene = new Scene("puzzleScene", "puzzleSceneBG.png");
   RequireObject loupe03 = new RequireObject("requiresScythe_puzzleScene", 300, 383, 48, 93, "Scythe_Mold.png", "Looks like a scythe fits in here", scythe, crossObject, "puzzleSceneBG2.png");
+  loupe03.addSoundFile(scythePlace);
   puzzleScene.addGameObject(loupe03);
 
   //light Scene
@@ -62,6 +75,7 @@ void setup()
   //MoveToSceneObject goToAct2MirrorObject = new MoveToSceneObject("goTolightScene_act2_lightScene", 1040, 496, 20, 20, "mirror.png", "lightScene_act2");
   //lightScene.addGameObject(goToAct2MirrorObject);
   RequireObject loupe04 = new RequireObject("requiresMirror_lightScene", 1179, 645, 62, 75, "Rock.png", "The light could be reflected somehow...", mirror, "lightScene_act2"); //instead of placing a mirror it changes the scene background
+  loupe04.addSoundFile(mirrorPickUp);
   lightScene.addGameObject(loupe04);
 
   //statue Scene
@@ -93,6 +107,7 @@ void setup()
   //statue Scene act2
   Scene statueScene_act2 = new Scene("statueScene_act2", "statueSceneBG2.png");
   MoveToSceneObject goToAct3RubyObject = new MoveToSceneObject("ruby_statueScene_act2", 600, 304, 31, 20, "GemEye_InBowl.png", "puzzleScene_act3"); //anubis eye for the door
+  goToAct3RubyObject.addSoundFile(gemPickup);
   statueScene_act2.addGameObject(goToAct3RubyObject);
   //CollectableObject goToAct3RubyObject = new CollectableObject("ruby_puzzleScene", 600, 400, 50, 50, ruby); //anubis eye for the door
   //statueScene_act2.addGameObject(goToAct3RubyObject);
@@ -166,7 +181,6 @@ void setup()
         navigationGUI navLightScene_act2 = new navigationGUI("navLightScene_act2", lightScene_act2, "statueScene_act2", "riddleScene_act2", "puzzleScene_act2");
         navLightScene_act2.addNavigationGUI();
 
-        
         //scenes 9-10
 
  /*
