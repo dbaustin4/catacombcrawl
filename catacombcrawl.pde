@@ -1,13 +1,14 @@
 int wwidth = 1280;
 int wheight = 720;
 boolean skippedMovie = false;
-boolean devmode = true;
+boolean devmode = false;
 boolean devnav = false;
 
 import processing.sound.*;
 SoundFile file;
 import processing.video.*;
 Movie openingMovie;
+Sound sound = new Sound(this);
 
 final SceneManager sceneManager = new SceneManager();
 final InventoryManager inventoryManager = new InventoryManager();
@@ -19,9 +20,9 @@ void settings()
 
 void setup()
 {
+  sound.volume(0);
   openingMovie = new Movie(this, "openingMovie.mov");
   openingMovie.play();
-
   //init for audiofiles
         SoundFile soundTrack = new SoundFile(this, "soundtrack.wav");
         SoundFile scythePickUp = new SoundFile(this, "scythe_pickup.wav");
@@ -32,7 +33,8 @@ void setup()
         SoundFile doorOpen = new SoundFile(this, "sliding_stone_door.wav");
         SoundFile gemPickup = new SoundFile(this, "gem_Pickup.wav");
         SoundFile paperRumble  = new SoundFile(this, "paper_rumbling.wav");
-        //soundTrack.loop();
+        soundTrack.loop();
+
 
   //PFont egypt;
   //egypt = createFont("gyp");
@@ -195,6 +197,7 @@ void setup()
   } catch (Exception e) {
    println("Scene not found");
   }*/
+
 }
 
 void draw()
@@ -204,6 +207,7 @@ void draw()
         println(openingMovie.time());
         }
   else{
+        sound.volume(1);
         sceneManager.getCurrentScene().draw(wwidth, wheight);
         sceneManager.getCurrentScene().updateScene();
         inventoryManager.clearMarkedForDeathCollectables();
