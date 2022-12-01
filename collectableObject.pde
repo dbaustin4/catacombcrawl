@@ -27,6 +27,9 @@ class CollectableObject extends GameObject {
   
   @Override
   public void mouseClicked() {
+    if(this.soundFile != null){
+      soundFile.play();
+    }
     if(mouseIsHovering) {
       inventoryManager.addCollectable(collectable);
       sceneManager.getCurrentScene().removeGameObject(this);

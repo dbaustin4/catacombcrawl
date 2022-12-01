@@ -9,6 +9,7 @@ class GameObject {
   private PImage gameObjectImage;
   private PImage gameObjectImageHover;
   protected boolean mouseIsHovering;
+  protected  SoundFile soundFile;
   
   public GameObject(String identifier, int x, int y, int owidth, int oheight) {
     this(identifier, x, y, owidth, oheight, "");
@@ -32,7 +33,11 @@ class GameObject {
     this.gameObjectImageHover = loadImage(gameObjectImageHoverFile);
     hasHoverImage = true;
   }
-  
+
+  public void addSoundFile(SoundFile soundFileName)
+  {
+    this.soundFile =  soundFileName;
+  }
   public void draw() {
     if(hasImage) {
       if(mouseIsHovering && hasHoverImage) {
@@ -51,7 +56,11 @@ class GameObject {
      }
   }
   
-  public void mouseClicked() { }
+  public void mouseClicked() {
+    if(soundFile != null){
+      soundFile.play();
+    }
+  }
   
   public String getIdentifier() {
     return this.identifier;

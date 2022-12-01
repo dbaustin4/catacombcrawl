@@ -21,8 +21,9 @@ void setup()
 {
   openingMovie = new Movie(this, "openingMovie.mov");
   openingMovie.play();
-  file = new SoundFile(this, "soundtrack.mp3");
+  SoundFile file = new SoundFile(this, "soundtrack.mp3");
   file.loop();
+  SoundFile scythePickUp = new SoundFile(this, "scythe_pickup.wav");
   
   //PFont egypt;
   //egypt = createFont("gyp");
@@ -60,6 +61,7 @@ void setup()
   //statue Scene
   Scene statueScene = new Scene("statueScene", "statueSceneBG.png");
   CollectableObject scytheObject = new CollectableObject("scythe_lightScene", 616, 280, 86, 55, scythe);
+  scytheObject.addSoundFile(scythePickUp);
   statueScene.addGameObject(scytheObject);
 
 
