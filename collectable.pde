@@ -1,6 +1,7 @@
 class Collectable {
   private String name;
   private String gameObjectImageFile;
+  private String soundFile;  
   //Could be expanded to add an amount, for example
   
   public Collectable(String name, String gameObjectImageFile) {
@@ -15,12 +16,13 @@ class Collectable {
   public String getGameObjectImageFile() { 
     return gameObjectImageFile; 
   } 
-  
+
   @Override 
   public boolean equals(Object obj) { 
     if (obj == this) { return true; } 
     if (obj == null || obj.getClass() != this.getClass()) { return false; } 
-    Collectable otherCollectable = (Collectable) obj; 
+    Collectable otherCollectable = (Collectable) obj;
+    //soundFile.play();
     return otherCollectable.getName().equals(this.name);
   } 
 

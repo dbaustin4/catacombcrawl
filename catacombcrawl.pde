@@ -42,9 +42,15 @@ void setup()
   RequireObject loupe01 = new RequireObject("requiresCross_riddleScene", 929, 496, 288, 224, "chestClosed.png", "The chest appears to be locked.", cross , loupe06 ,mirrorObject);
   loupe01.setHoverImage("chestClosed.png");
   riddleScene.addGameObject(loupe01);
-  TextObject loupe02 = new TextObject("largeText_riddleScene", 533, 395, 218, 120, "book.png", "The eye of the death god is needed to read the writing on the wall. I am everywhere but nowhere, present everywhere.");
+  MoveToSceneObject loupe02 = new MoveToSceneObject("goToriddleBookScene", 533, 395, 218, 120, "book.png", "riddleBookScene");
   loupe02.setHoverImage("book.png");
   riddleScene.addGameObject(loupe02);
+  
+  //riddle book scene
+  Scene riddleBookScene = new Scene("riddleBookScene", "riddleBook.png");
+  MoveToSceneObject loupe09 = new MoveToSceneObject("goBackRiddleScene", 0, 0, 1280, 720, "riddleBook.png", "riddleScene");
+  riddleBookScene.addGameObject(loupe09);
+  
 
   // puzzle Scene
   Scene puzzleScene = new Scene("puzzleScene", "puzzleSceneBG.png");
@@ -69,12 +75,16 @@ void setup()
   //scenes 5 - 10 are the same room but after some changes have taken effect
   //riddle Scene act2
   Scene riddleScene_act2 = new Scene("riddleScene_act2", "riddleSceneBG.png");
-  TextObject loupe05 = new TextObject("largeText_riddleScene", 533, 395, 218, 120, "book.png", "The eye of the death god is needed to read the writing on the wall. I am everywhere but nowhere, present everywhere.");
+  MoveToSceneObject loupe05 = new MoveToSceneObject("goToriddleBookScene_act2", 533, 395, 218, 120, "book.png", "riddleBookScene_act2");
   loupe05.setHoverImage("book.png");
   riddleScene_act2.addGameObject(loupe05);
   loupe06.setHoverImage("chestOpen.png");
   riddleScene_act2.addGameObject(loupe06);
 
+  //riddle book act2 scene
+  Scene riddleBookScene_act2 = new Scene("riddleBookScene_act2", "riddleBook.png");
+  MoveToSceneObject loupe10 = new MoveToSceneObject("goBackRiddleScene_act2", 0, 0, 1280, 720, "riddleBook.png", "riddleScene_act2");
+  riddleBookScene_act2.addGameObject(loupe10);
   
   //puzzle Scene act2
   Scene puzzleScene_act2 = new Scene("puzzleScene_act2", "puzzleSceneBG2.png");
@@ -102,14 +112,19 @@ void setup()
 
   //riddle scene act3
   Scene riddleScene_act3 = new Scene("riddleScene_act3", "riddleSceneBG.png");
-  TextObject loupe07 = new TextObject("largeText_riddleScene", 533, 395, 218, 120, "book.png", "The eye of the death god is needed to read the writing on the wall. I am everywhere but nowhere, present everywhere!");
+  MoveToSceneObject loupe07 = new MoveToSceneObject("goToriddleBookScene_act3", 533, 395, 218, 120, "book.png", "riddleBookScene_act3");
   loupe07.setHoverImage("book.png");
-  riddleScene_act3.addGameObject(loupe05);
+  riddleScene_act3.addGameObject(loupe07);
   TextObject loupe08 = new TextObject("smallText_riddleScene", 929, 570, 255, 150, "chestOpen.png", "Of course it is empty.");
   loupe08.setHoverImage("chestOpen.png");
   riddleScene_act3.addGameObject(loupe06);
   MoveToSceneObject navRiddleScene_act3 = new MoveToSceneObject("goTopuzzleScene_act3_riddleScene_act3", 1231, 358, 50, 50, "arrowRight.png", "puzzleScene_act3");
   riddleScene_act3.addGameObject(navRiddleScene_act3);
+  
+  //riddle book act3 scene
+  Scene riddleBookScene_act3 = new Scene("riddleBookScene_act3", "riddleBook.png");
+  MoveToSceneObject loupe11 = new MoveToSceneObject("goBackRiddleScene_act3", 0, 0, 1280, 720, "riddleBook.png", "riddleScene_act3");
+  riddleBookScene_act3.addGameObject(loupe11);
 
   //Room transitions
         /*                 layout

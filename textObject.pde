@@ -36,7 +36,6 @@ class TextObject extends GameObject {
     float remaining = textWidth - 300;
     textWidth = (textWidth > 300) ? 300 : textWidth;
     textHeight = 50;
-    textFont(egypt);
     while(remaining > 300)
     {
       textHeight += 30;
