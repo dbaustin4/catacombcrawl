@@ -20,7 +20,7 @@ void settings()
 
 void setup()
 {
-  sound.volume(0);
+  sound.volume(0.5);
   openingMovie = new Movie(this, "openingMovie.mov");
   openingMovie.play();
   //init for audiofiles
@@ -206,7 +206,7 @@ void setup()
 
 void draw()
 {
-  if(openingMovie.time() < 54  && devmode == false){
+  if(openingMovie.time() < 136  && devmode == false){
         image(openingMovie, 0, 0, wwidth, wheight);
         }
   else{
