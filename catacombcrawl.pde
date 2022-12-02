@@ -201,13 +201,14 @@ void setup()
 
         //scenes 9-10
 
- 
+        print(openingMovie.duration());
 }
 
 void draw()
 {
-  if(openingMovie.time() < 136  && devmode == false){
+  if(openingMovie.time() < 134.5  && devmode == false){
         image(openingMovie, 0, 0, wwidth, wheight);
+        openingMovie.time();
         }
   else{
         openingMovie.pause();
@@ -228,6 +229,6 @@ void mouseMoved() {
 }
 
 void mouseClicked() {
-  if(!skippedMovie) { skippedMovie = true; openingMovie.jump(54);}
+  if(!skippedMovie) { skippedMovie = true; openingMovie.jump(135);}
   sceneManager.getCurrentScene().mouseClicked();
 }
