@@ -28,6 +28,7 @@ void setup()
   openingMovie.play();
   //init for audiofiles
         SoundFile soundTrack = new SoundFile(this, "soundtrack.wav");
+        sound.volume(0.5);
         soundTrack.amp(0.5);
         soundTrack.loop();
         SoundFile scythePickUp = new SoundFile(this, "scythe_pickup.wav");
