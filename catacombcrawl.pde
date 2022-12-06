@@ -13,6 +13,10 @@ Sound sound = new Sound(this);
 final SceneManager sceneManager = new SceneManager();
 final InventoryManager inventoryManager = new InventoryManager();
 
+static GameObject tile1;
+static GameObject tile2;
+static GameObject tile3;
+
 void settings()
 {
   size(wwidth, wheight);
@@ -20,11 +24,11 @@ void settings()
 
 void setup()
 {
-  sound.volume(0.5);
   openingMovie = new Movie(this, "openingMovie.mov");
   openingMovie.play();
   //init for audiofiles
         SoundFile soundTrack = new SoundFile(this, "soundtrack.wav");
+        soundTrack.amp(0.5);
         soundTrack.loop();
         SoundFile scythePickUp = new SoundFile(this, "scythe_pickup.wav");
         SoundFile scythePlace = new SoundFile(this, "scythe_place.wav");
@@ -34,6 +38,7 @@ void setup()
         SoundFile doorOpen = new SoundFile(this, "sliding_stone_door.wav");
         SoundFile gemPickup = new SoundFile(this, "gem_Pickup.wav");
         SoundFile paperRumble  = new SoundFile(this, "paper_rumbling.wav");
+        SoundFile uiEffect  = new SoundFile(catacombcrawl.this, "UI.wav");
 
 
 
@@ -82,7 +87,7 @@ void setup()
   Scene lightScene = new Scene("lightScene", "lightSceneBG.png");
   //MoveToSceneObject goToAct2MirrorObject = new MoveToSceneObject("goTolightScene_act2_lightScene", 1040, 496, 20, 20, "mirror.png", "lightScene_act2");
   //lightScene.addGameObject(goToAct2MirrorObject);
-  RequireObject loupe04 = new RequireObject("requiresMirror_lightScene", 1179, 645, 62, 75, "Rock.png", "The light could be reflected somehow...", mirror, "lightScene_act2"); //instead of placing a mirror it changes the scene background
+  RequireObject loupe04 = new RequireObject("requiresMirror_lightScene", 939, 545, 302, 175, "Rock.png", "The light could be reflected somehow...", mirror, "lightScene_act2"); //instead of placing a mirror it changes the scene background
   loupe04.addSoundFile(mirrorPickUp);
   lightScene.addGameObject(loupe04);
 
@@ -136,7 +141,14 @@ void setup()
   GameObject puzzleWallObject = new PuzzleDoor("puzzleDoor", 382, 222, 518, 498, "Puzzle_Overlay.png");
   puzzleScene_act3.addGameObject(puzzleWallObject);
   MoveToSceneObject navPuzzleScene_act3 = new MoveToSceneObject("goToriddleScene_act3_puzzleScene_act3",  2, 358, 50, 50, "arrowLeft.png", "riddleScene_act3");
+  navPuzzleScene_act3.addSoundFile(uiEffect);
   puzzleScene_act3.addGameObject(navPuzzleScene_act3);
+  tile1 = new GameObject("tilePressed1", -300,-300, 130,125,"puzzle_pressed.png");
+  tile2 = new GameObject("tilePressed2", -300,-300, 130,125,"puzzle_pressed.png");
+  tile3 = new GameObject("tilePressed3", -300,-300, 130,125,"puzzle_pressed.png");
+  puzzleScene_act3.addGameObject(tile1);
+  puzzleScene_act3.addGameObject(tile2);
+  puzzleScene_act3.addGameObject(tile3);
 
   //riddle scene act3
   Scene riddleScene_act3 = new Scene("riddleScene_act3", "riddleSceneBG.png");
@@ -149,6 +161,7 @@ void setup()
   riddleScene_act3.addGameObject(loupe06);
   MoveToSceneObject navRiddleScene_act3 = new MoveToSceneObject("goTopuzzleScene_act3_riddleScene_act3", 1231, 358, 50, 50, "arrowRight.png", "puzzleScene_act3");
   riddleScene_act3.addGameObject(navRiddleScene_act3);
+  navRiddleScene_act3.addSoundFile(uiEffect);
   
   //riddle book act3 scene
   Scene riddleBookScene_act3 = new Scene("riddleBookScene_act3", "riddleBook.png");
@@ -212,7 +225,6 @@ void draw()
         }
   else{
         openingMovie.pause();
-        sound.volume(1);
         sceneManager.getCurrentScene().draw(wwidth, wheight);
         sceneManager.getCurrentScene().updateScene();
         inventoryManager.clearMarkedForDeathCollectables();

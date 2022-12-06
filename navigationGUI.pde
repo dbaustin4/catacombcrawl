@@ -1,5 +1,5 @@
 class navigationGUI {
-
+  SoundFile uiEffect  = new SoundFile(catacombcrawl.this, "UI.wav");
   private ArrayList<String> navObjectsNames = new ArrayList<String>();
   //private ArrayList<MoveToSceneObject> navObjects = new ArrayList<MoveToSceneObject>();
   private String n;
@@ -31,8 +31,10 @@ class navigationGUI {
   public void addNavigationGUI(){
     MoveToSceneObject obj1 = new MoveToSceneObject(navObjectsNames.get(0), 2, 358, 50, 50, arrowLeftImage, targetLeft);
     scene.addGameObject(obj1);
+    obj1.addSoundFile(uiEffect);
     MoveToSceneObject obj2  = new MoveToSceneObject(navObjectsNames.get(1) , 1231, 358, 50, 50, arrowRightImage, targetRight);
     scene.addGameObject(obj2);
+    obj2.addSoundFile(uiEffect);
     //MoveToSceneObject obj3  = new MoveToSceneObject(navObjectsNames.get(2) , 308, 645, 50, 50, arrowDownImage, targetDown);
     //scene.addGameObject(obj3);
   }

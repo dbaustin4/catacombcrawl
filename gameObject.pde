@@ -33,7 +33,10 @@ class GameObject {
     this.gameObjectImageHover = loadImage(gameObjectImageHoverFile);
     hasHoverImage = true;
   }
-
+  public void setXY(int x, int y){
+    this.x = x;
+    this.y = y;
+  }
   public void addSoundFile(SoundFile soundFileName)
   {
     this.soundFile =  soundFileName;
